@@ -2,6 +2,7 @@ package io.github.khda91.cucumber4.step.console.logger;
 
 import cucumber.api.PickleStepTestStep;
 import cucumber.api.Result;
+import cucumber.api.TestStep;
 import cucumber.api.event.EventHandler;
 import cucumber.api.event.EventListener;
 import cucumber.api.event.EventPublisher;
@@ -103,22 +104,25 @@ public class Cucumber4StepConsoleLogger implements EventListener, ColorAware {
     }
 
     private void handleTestStepStarted(TestStepStarted event) {
-        PickleStepTestStep testStep = (PickleStepTestStep) event.testStep;
-        String keyword = getStepKeyword(testStep);
-        String stepText = testStep.getStepText();
-        StringBuilder stepLogName = new StringBuilder(keyword + stepText);
+        TestStep step = event.testStep;
+        if (step instanceof PickleStepTestStep) {
+            PickleStepTestStep testStep = (PickleStepTestStep) step;
+            String keyword = getStepKeyword(testStep);
+            String stepText = testStep.getStepText();
+            StringBuilder stepLogName = new StringBuilder(keyword + stepText);
 
-        if (testStep.getStepArgument().size() != 0) {
-            Argument argument = testStep.getStepArgument().get(0);
-            if (argument instanceof PickleTable) {
-                stepLogName.append(formatTable((PickleTable) argument));
-            } else if (argument instanceof PickleString) {
-                stepLogName.append(formatDocString((PickleString) argument));
+            if (testStep.getStepArgument().size() != 0) {
+                Argument argument = testStep.getStepArgument().get(0);
+                if (argument instanceof PickleTable) {
+                    stepLogName.append(formatTable((PickleTable) argument));
+                } else if (argument instanceof PickleString) {
+                    stepLogName.append(formatDocString((PickleString) argument));
+                }
             }
-        }
 
-        String fullTextStep = stepLogName.toString();
-        log.info(buildStepExecutionMessage(fullTextStep));
+            String fullTextStep = stepLogName.toString();
+            log.info(buildStepExecutionMessage(fullTextStep));
+        }
     }
 
     private String formatTable(PickleTable table) {

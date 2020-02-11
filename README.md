@@ -19,14 +19,14 @@ Add following dependency to you project
 <dependency>
     <groupId>io.github.khda91</groupId>
     <artifactId>step-logger-cucumber4-plugin</artifactId>
-     <version>1.0.0</version>
+     <version>1.0.1</version>
     <scope>test</scope>
 </dependency>
 ```
 
 **Gradle**
 ```groovy
-testRuntime "io.github.khda91:step-logger-cucumber4-plugin:1.0.0"
+testRuntime "io.github.khda91:step-logger-cucumber4-plugin:1.0.1"
 ```
 
 ### Junit 4
