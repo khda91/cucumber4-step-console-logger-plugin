@@ -2,6 +2,7 @@
 # Cucumber 4 Console Step Logger plugin 
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.khda91/step-logger-cucumber4-plugin)](https://search.maven.org/artifact/io.github.khda91/step-logger-cucumber4-plugin)
 [![Apache License](https://img.shields.io/badge/license-Apache-green.svg)](https://github.com/khda91/cucumber4-step-console-logger-plugin/blob/master/LICENSE)
+
 Cucumber 4 plugin for the printing steps into console.
 For the console output used slf4 logger
 
