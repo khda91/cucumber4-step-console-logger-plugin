@@ -66,7 +66,7 @@ public class Cucumber4StepConsoleLogger implements EventListener, ColorAware {
         handleStartOfFeature(event);
         startScenarioTimeInMillis = System.currentTimeMillis();
         getMemory();
-        String testCaseStartedLog = String.format("\n\n########### Scenario Execution Stared ###########\n\n" +
+        String testCaseStartedLog = String.format("\n\n########### Scenario Execution Started ###########\n\n" +
                         "\t\tScenario: %s\n" +
                         "\t\tTags: %s\n" +
                         "\t\tTotal Memory (MB): %s\n" +
@@ -82,7 +82,7 @@ public class Cucumber4StepConsoleLogger implements EventListener, ColorAware {
         countTestScenariosPassedFailed(event);
         getMemory();
         String testCaseFinishedLog = String.format("\n\n########### Scenario Execution Finished ###########\n\n" +
-                        "\t\tComplected Scenarios count: %s\n" +
+                        "\t\tCompleted Scenarios count: %s\n" +
                         "\t\tLast Scenario: %s\n" +
                         "\t\tTags: %s\n" +
                         "\t\tStatus of last executed Scenario: %s\n" +
