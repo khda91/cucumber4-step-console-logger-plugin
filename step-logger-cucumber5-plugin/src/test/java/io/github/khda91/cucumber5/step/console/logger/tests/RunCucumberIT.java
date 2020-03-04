@@ -1,4 +1,4 @@
-package io.github.khda91.cucumber4.step.console.logger.tests;
+package io.github.khda91.cucumber5.step.console.logger.tests;
 
 /*
  *  Copyright 2020 the original author of authors
@@ -22,7 +22,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        plugin = "io.github.khda91.cucumber4.step.console.logger.Cucumber4StepConsoleLogger"
+        plugin = "io.github.khda91.cucumber5.step.console.logger.Cucumber5StepConsoleLogger"
 )
-public class RunnerTest {
+public class RunCucumberIT {
 }

@@ -5,13 +5,17 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.github.khda91</groupId>
-    <artifactId>step-logger-cucumber4-plugin</artifactId>
-    <version>1.0.2</version>
-    <packaging>jar</packaging>
+    <artifactId>step-logger-cucumber-plugin</artifactId>
+    <version>2.0.0</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>step-logger-cucumber4-plugin</module>
+        <module>step-logger-cucumber5-plugin</module>
+    </modules>
 
     <name>${project.groupId}:${project.artifactId}</name>
     <url>https://github.com/khda91/cucumber-step-console-logger-plugin</url>
-    <description>A Cucumber plugin for 4th version that logs steps at the moment of execution</description>
+    <description>A Cucumber plugin that logs steps at the moment of execution</description>
 
     <developers>
         <developer>
@@ -34,7 +38,8 @@
         <maven.compiler.target>1.8</maven.compiler.target>
 
         <!-- Maven Dependencies -->
-        <cucumber.version>4.8.1</cucumber.version>
+        <!-- Version of the cucumber lib will be override in the module -->
+        <cucumber.version/>
         <gherkin.version>5.1.0</gherkin.version>
         <slf4j.version>1.7.30</slf4j.version>
         <lombok.version>1.18.12</lombok.version>
@@ -68,33 +73,37 @@
         </repository>
     </distributionManagement>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.cucumber</groupId>
+                <artifactId>cucumber-core</artifactId>
+                <version>${cucumber.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>io.cucumber</groupId>
+                <artifactId>cucumber-java</artifactId>
+                <version>${cucumber.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>io.cucumber</groupId>
+                <artifactId>cucumber-junit</artifactId>
+                <version>${cucumber.version}</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>gherkin</artifactId>
             <version>${gherkin.version}</version>
             <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-core</artifactId>
-            <version>${cucumber.version}</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-java</artifactId>
-            <version>${cucumber.version}</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-junit</artifactId>
-            <version>${cucumber.version}</version>
-            <scope>test</scope>
         </dependency>
 
         <dependency>
@@ -189,16 +198,16 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <version>${maven-failsafe-plugin.version}</version>
+                <configuration>
+                    <parallel>methods</parallel>
+                    <threadCount>4</threadCount>
+                </configuration>
                 <executions>
                     <execution>
                         <goals>
                             <goal>integration-test</goal>
                             <goal>verify</goal>
                         </goals>
-                        <configuration>
-                            <parallel>methods</parallel>
-                            <useUnlimitedThreads>true</useUnlimitedThreads>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>

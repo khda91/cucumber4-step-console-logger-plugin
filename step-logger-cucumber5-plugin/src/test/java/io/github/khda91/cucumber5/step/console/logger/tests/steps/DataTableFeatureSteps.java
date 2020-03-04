@@ -1,4 +1,4 @@
-package io.github.khda91.cucumber4.step.console.logger.tests;
+package io.github.khda91.cucumber5.step.console.logger.tests.steps;
 
 /*
  *  Copyright 2020 the original author of authors
@@ -16,13 +16,12 @@ package io.github.khda91.cucumber4.step.console.logger.tests;
  *  limitations under the License.
  */
 
-import io.cucumber.junit.Cucumber;
-import io.cucumber.junit.CucumberOptions;
-import org.junit.runner.RunWith;
+import io.cucumber.datatable.DataTable;
+import io.cucumber.java.en.Given;
 
-@RunWith(Cucumber.class)
-@CucumberOptions(
-        plugin = "io.github.khda91.cucumber4.step.console.logger.Cucumber4StepConsoleLogger"
-)
-public class RunnerIT {
+public class DataTableFeatureSteps {
+
+    @Given("users are")
+    public void usersAre(DataTable dataTable) {
+    }
 }
