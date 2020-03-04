@@ -10,7 +10,7 @@
     <packaging>jar</packaging>
 
     <name>${project.groupId}:${project.artifactId}</name>
-    <url>https://github.com/khda91/cucumber4-step-console-logger-plugin</url>
+    <url>https://github.com/khda91/cucumber-step-console-logger-plugin</url>
     <description>A Cucumber plugin for 4th version that logs steps at the moment of execution</description>
 
     <developers>
@@ -52,9 +52,9 @@
     </properties>
 
     <scm>
-        <url>https://github.com/khda91/cucumber4-step-console-logger-plugin</url>
-        <connection>git@github.com:khda91/cucumber4-step-console-logger-plugin.git</connection>
-        <developerConnection>git@github.com:khda91/cucumber4-step-console-logger-plugin.git</developerConnection>
+        <url>https://github.com/khda91/cucumber-step-console-logger-plugin</url>
+        <connection>git@github.com:khda91/cucumber-step-console-logger-plugin.git</connection>
+        <developerConnection>git@github.com:khda91/cucumber-step-console-logger-plugin.git</developerConnection>
     </scm>
 
     <distributionManagement>
