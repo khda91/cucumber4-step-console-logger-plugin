@@ -43,7 +43,7 @@
         <gherkin.version>5.1.0</gherkin.version>
         <slf4j.version>1.7.30</slf4j.version>
         <lombok.version>1.18.12</lombok.version>
-        <junit.version>4.13</junit.version>
+        <junit.version>4.13.1</junit.version>
         <logback.version>1.2.3</logback.version>
 
         <!-- Maven Plugins -->
